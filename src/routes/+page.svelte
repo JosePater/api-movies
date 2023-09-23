@@ -1,5 +1,6 @@
 <script>
 	import Loader from '../Components/Loader.svelte';
+    import Grid from '../Components/Grid.svelte';
 	let url =
 		'https://api.themoviedb.org/3/movie/popular?api_key=06aca6f9ab6fc84ea9c50869f995ed68&language=en-US&page=1';
 
@@ -24,9 +25,7 @@
 	{#await promesa}
 		<div class="container"><Loader /></div>
 	{:then peliculas}
-		{#each peliculas as item}
-			<li>{item.title}</li>
-		{/each}
+		<Grid {peliculas}/>
 	{:catch error}
 		<p style="color:red">{error}</p>
 	{/await}
