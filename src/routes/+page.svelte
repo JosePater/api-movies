@@ -1,4 +1,5 @@
 <script>
+	import Loader from '../Components/Loader.svelte';
 	let url =
 		'https://api.themoviedb.org/3/movie/popular?api_key=06aca6f9ab6fc84ea9c50869f995ed68&language=en-US&page=1';
 
@@ -10,7 +11,6 @@
 		peliculas = await res.json();
 
 		if (res.ok) {
-			console.log(peliculas);
 			return peliculas.results;
 		} else {
 			throw new Error('No hay conexión con la API');
@@ -22,7 +22,7 @@
 	<h1>Películas más populares</h1>
 
 	{#await promesa}
-		<p>Cargador</p>
+		<div class="container"><Loader /></div>
 	{:then peliculas}
 		{#each peliculas as item}
 			<li>{item.title}</li>
