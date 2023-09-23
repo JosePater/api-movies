@@ -1,6 +1,7 @@
 <script>
-    import Card from './Card.svelte'
+    import Card from './Card.svelte';
     export let peliculas
+    import { goto } from '$app/navigation';
 </script>
 
 <div class="row mt-3">
@@ -11,7 +12,7 @@
         titulo={item.title}
         imagen={item.poster_path}
         fecha={item.release_date}
-        on:ver-mas = { () => ('/Pelicula/' + item.id)}
+        on:ver-mas={() => goto(`/Pelicula/${item.id}`)}
         />
     </div>
 {/each}
