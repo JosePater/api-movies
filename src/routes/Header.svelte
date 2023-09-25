@@ -1,6 +1,6 @@
 <svelte:head>
   <title>API Películas</title>
-  <meta name="description" content="About this app" />
+  <meta name="description" content="App" />
 </svelte:head>
 <header>
 	<nav class="navbar navbar-expand-lg navbar-primary bg-primary">
