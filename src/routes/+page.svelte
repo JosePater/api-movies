@@ -1,8 +1,14 @@
 <script>
+	/** @type {import('./$types').LayoutData} */
+	export let data;
 	import Loader from '../Components/Loader.svelte';
     import Grid from '../Components/Grid.svelte';
+	import { page } from '$app/stores'; // Need for receive param
+	let { id } = $page.params; // Recibe el parámetro
+	const apiKey = data.key;
+
 	let url =
-		'https://api.themoviedb.org/3/movie/popular?api_key=06aca6f9ab6fc84ea9c50869f995ed68&language=en-US&page=1';
+	`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=1`;
 
 	let promesa = ajax();
 	let peliculas = [];

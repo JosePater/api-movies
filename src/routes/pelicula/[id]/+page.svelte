@@ -1,56 +1,66 @@
 <script>
+	/** @type {import('./$types').LayoutData} */
+	export let data;
 	import Loader from '../../../Components/Loader.svelte';
-	import { page } from '$app/stores';
+	import { onMount } from 'svelte';
+	import { page } from '$app/stores'; // Need for receive param
+	
 	let { id } = $page.params; // Recibe el parámetro
+	const apiKey = data.key;
 
-	const url = 'https://api.themoviedb.org/3/movie/';
-	const key = '?api_key=06aca6f9ab6fc84ea9c50869f995ed68&language=en-US';
-	const urlFinal = url + id + key;
-
-	let promesa = ajax();
+	
 	let pelicula = {};
 	let generos = [];
+	let error;
 
-	async function ajax() {
-		const res = await fetch(urlFinal);
-		pelicula = await res.json();
-		generos = await pelicula.genres;
-		if (res.ok) {
-			return pelicula.results;
-		} else {
-			throw new Error('Película no encontrada');
+	onMount(async () => {
+		const url = `https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}&language=en-US`;
+
+		try {
+			const res = await fetch(url);
+
+			if (res.ok) {
+				pelicula = await res.json();
+			} else {
+				throw new Error('Película no encontrada');
+			}
+		} catch (e) {
+			error = e.message;
 		}
-	}
+	});
 </script>
 
-{#await promesa}
-	<div class="container"><Loader /></div>
-{:then peliculas}
-	<div class="row mt-5">
-		<div class="col-lg-6">
-			<img
-				src="https://image.tmdb.org/t/p/w500{pelicula.poster_path}"
-				alt={pelicula.title}
-				width="100%"
-				height="700"
-			/>
-		</div>
+<section class="container">
+	{#if pelicula.title}
+		<div class="row mt-5">
+			<div class="col-lg-6">
+				<img
+					src="https://image.tmdb.org/t/p/w500{pelicula.poster_path}"
+					alt={pelicula.title}
+					width="100%"
+					height="700"
+				/>
+			</div>
 
-		<div class="col-lg-6">
-			<h1>{pelicula.title}</h1>
-			<p>{pelicula.overview}</p>
-			{#each generos as genero}
-				<h4>{genero.name}</h4>
-			{/each}
+			<div class="col-lg-6">
+				<h1>{pelicula.title}</h1>
+				<p>{pelicula.overview}</p>
+				{#each generos as genero}
+					<h4>{genero.name}</h4>
+				{/each}
 
-			<div class="rating" align="center">
-				{pelicula.vote_average}
+				<div class="rating" align="center">
+					{pelicula.vote_average}
+				</div>
 			</div>
 		</div>
-	</div>
-{:catch error}
-	<p id="error">{error}</p>
-{/await}
+	{:else if error}
+		<p id="error">🚫{error}</p>
+		
+	{:else}
+		<div class="container"><Loader /></div>
+	{/if}
+</section>
 
 <style>
 	.rating {
@@ -61,7 +71,6 @@
 	}
 	#error {
 		color: red;
-		font-size: 30px;
-        font-weight: bold;
+		font-size: 28px; 
 	}
 </style>
