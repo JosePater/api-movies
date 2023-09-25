@@ -4,7 +4,7 @@
 	import Loader from '../../../Components/Loader.svelte';
 	import { onMount } from 'svelte';
 	import { page } from '$app/stores'; // Need for receive param
-	
+
 	let { id } = $page.params; // Recibe el parámetro
 	const apiKey = data.key;
 
@@ -14,7 +14,7 @@
 	let error;
 
 	onMount(async () => {
-		const url = `https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}&language=en-US`;
+		const url = `https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}&language=es-US`;
 
 		try {
 			const res = await fetch(url);

@@ -10,7 +10,7 @@
 	let numPage = 1;
 
 	async function ajax(pag) {
-		let url = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=${pag}`;
+		let url = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=es-US&page=${pag}`;
 		const res = await fetch(url);
 		peliculas = await res.json();
 
