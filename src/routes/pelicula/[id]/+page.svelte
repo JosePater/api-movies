@@ -38,7 +38,7 @@
 					src="https://image.tmdb.org/t/p/w500{pelicula.poster_path}"
 					alt={pelicula.title}
 					width="100%"
-					height="700"
+					height="600"
 				/>
 			</div>
 

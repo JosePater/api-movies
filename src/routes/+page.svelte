@@ -2,7 +2,7 @@
 	/** @type {import('./$types').LayoutData} */
 	export let data;
 	import Loader from '../Components/Loader.svelte';
-	import Grid from '../Components/Grid.svelte';
+	import GridCard from '../Components/GridCard.svelte';
 	const apiKey = data.key;
 
 	let promesa = ajax();
@@ -69,8 +69,7 @@
 	{#await promesa}
 		<div class="container"><Loader /></div>
 	{:then peliculas}
-		<Grid {peliculas} />
-
+		<GridCard {peliculas} />
 		<button
 			id="btnLH"
 			class="btn btn-warning position-fixed bottom-0 start-0 m-3"
