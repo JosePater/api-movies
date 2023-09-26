@@ -1,38 +1,97 @@
-# create-svelte
+# API de Películas
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+Este proyecto es una aplicación web que utiliza la API de The Movie Database (TMDb) para mostrar información sobre películas.
 
-## Creating a project
+Está basado en un proyecto desarrollado por el ing. Jorge Maldonado B. (tutor Udemy).
 
-If you're seeing this, you've probably already done this step. Congrats!
+## Nuevas Funcionalidades
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+Se ha implementado las siguientes mejoras y características adicionales en este proyecto:
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+- Adaptado a SvelteKit.
+- Filtra películas por categorías como popularidad, calificación, en cartelera y próximamente.
+- Busca más películas mediante botones (Retroceder y Avanzar).
+- Renderizar el cargador (CSS) mientras se visualiza la película seleccionada.
+- Se adapta a dispositivos pequeños (responsive).
+- Contiene la apiKey del lado del servidor.
 
-## Developing
+## Tecnologías Utilizadas
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+- SvelteKit: Framework de JavaScript que se ha utilizado para agregar nuevas características.
+- The Movie Database (TMDb) API: Fuente de datos para obtener información sobre películas.
+- HTML, CSS y JavaScript: Tecnologías web estándar para la construcción de la interfaz de usuario.
+<div class="container">
+	<a
+		href="https://developer.mozilla.org/en-US/docs/Web/HTML"
+		target="_blank"
+		rel="noopener noreferrer"
+	>
+		<img
+			src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg"
+			alt="HTML5"
+			width="40"
+			height="40"
+		/>
+	</a>
+	<a
+		href="https://developer.mozilla.org/en-US/docs/Web/CSS"
+		target="_blank"
+		rel="noopener noreferrer"
+	>
+		<img
+			src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg"
+			alt="CSS3"
+			width="40"
+			height="40"
+		/>
+	</a>
+	<a
+		href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"
+		target="_blank"
+		rel="noopener noreferrer"
+	>
+		<img
+			src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg"
+			alt="JavaScript"
+			width="40"
+			height="40"
+		/>
+	</a>
+	<a href="https://getbootstrap.com" target="_blank" rel="noopener noreferrer">
+		<img
+			src="https://raw.githubusercontent.com/devicons/devicon/master/icons/bootstrap/bootstrap-plain-wordmark.svg"
+			alt="Bootstrap"
+			width="40"
+			height="40"
+		/>
+	</a>
+	<a href="https://svelte.dev" target="_blank" rel="noopener noreferrer">
+		<img
+			src="https://raw.githubusercontent.com/devicons/devicon/master/icons/svelte/svelte-original-wordmark.svg"
+			alt="Svelte"
+			width="40"
+			height="40"
+		/>
+	</a>
+</div>
 
-```bash
-npm run dev
+## Instalación
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+1. Clona este repositorio: `git clone https://github.com/JosePater/api-movies.git`
+2. Navega al directorio del proyecto: `cd api-movies`
+3. Instala las dependencias: `npm install`
+4. Inicia la aplicación: `npm run dev`
 
-## Building
+## Contribuciones
 
-To create a production version of your app:
+Las contribuciones son bienvenidas. Si deseas contribuir a este proyecto, por favor sigue las pautas de contribución en el archivo CONTRIBUTING.md.
 
-```bash
-npm run build
-```
+## Licencia
 
-You can preview the production build with `npm run preview`.
+Este proyecto está bajo la Licencia MIT. Consulta el archivo LICENSE.md para más detalles.
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+---
+
+## Desarrollado por:
+
+**[José Luis Paternina Martínez]**
