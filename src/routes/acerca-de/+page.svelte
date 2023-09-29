@@ -20,6 +20,7 @@
 		<li>
 			Filtra películas por categorías como popularidad, calificación, en cartelera y próximamente.
 		</li>
+		<li>Realiza búsquedas de películas por título.</li>
 		<li>Busca más películas mediante botones (Retroceder y Avanzar).</li>
 		<li>Renderiza el cargador (CSS) mientras se visualiza la película seleccionada.</li>
 		<li>Se adapta a dispositivos pequeños (responsive).</li>
@@ -86,13 +87,12 @@
 	<p><strong>[José Luis Paternina Martínez]</strong></p>
 </main>
 
-
 <style>
 	main {
 		font-family: Arial, sans-serif;
 		max-width: 800px;
 		margin: 0 auto;
-    margin-top: 30px;
+		margin-top: 30px;
 		padding: 20px;
 		background-color: #fcedbd;
 		border: 1px solid #ccc;

@@ -9,6 +9,7 @@ Está basado en un proyecto desarrollado por el ing. Jorge Maldonado B. (tutor U
 Se ha implementado las siguientes mejoras y características adicionales en este proyecto:
 
 - Adaptado a SvelteKit.
+- Realiza búsquedas de películas por título
 - Filtra películas por categorías como popularidad, calificación, en cartelera y próximamente.
 - Busca más películas mediante botones (Retroceder y Avanzar).
 - Renderizar el cargador (CSS) mientras se visualiza la película seleccionada.
