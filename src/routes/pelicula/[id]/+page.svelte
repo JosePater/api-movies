@@ -7,20 +7,21 @@
 
 	let { id } = $page.params; // Recibe el parámetro
 	const apiKey = data.key;
+	let urlMain = `https://api.themoviedb.org/3/`;
 
-	
 	let pelicula = {};
 	let generos = [];
 	let error;
 
 	onMount(async () => {
-		const url = `https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}&language=es-US`;
+		const url = `${urlMain}movie/${id}?api_key=${apiKey}&language=es-US`;
 
 		try {
 			const res = await fetch(url);
 
 			if (res.ok) {
 				pelicula = await res.json();
+				generos = pelicula.genres;
 			} else {
 				throw new Error('Película no encontrada');
 			}
@@ -49,14 +50,25 @@
 					<h4>{genero.name}</h4>
 				{/each}
 
+				<p><b>Duración:</b> {pelicula.runtime} min</p>
+
 				<div class="rating" align="center">
 					{pelicula.vote_average}
 				</div>
 			</div>
+
+			{#if pelicula.backdrop_path != null}
+				<img
+					src="https://image.tmdb.org/t/p/w500{pelicula.backdrop_path}"
+					alt={pelicula.title}
+					class="mt-3 mb-2"
+					width="100%"
+					height="100%"
+				/>
+			{/if}
 		</div>
 	{:else if error}
 		<p id="error">🚫{error}</p>
-		
 	{:else}
 		<div class="container"><Loader /></div>
 	{/if}
@@ -71,6 +83,6 @@
 	}
 	#error {
 		color: red;
-		font-size: 28px; 
+		font-size: 28px;
 	}
 </style>
